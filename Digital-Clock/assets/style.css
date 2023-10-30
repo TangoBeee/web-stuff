@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'GentonaExtraBold';
+    src: url("/Digital-Clock/Fonts/GentonaExtraBold.otf") format('opentype');
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    
+
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 6em;
+    letter-spacing: 2px;
+    font-family: 'GentonaExtraBold';
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.clock {
+    display: flex;
+    font-size: 30px;
+}
+
+.clock div {
+    font-weight: bold;
+    margin: 10px;
+}
+
+.text {
+    font-weight: 100;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+#ampm {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 805px) {
+    h2 {
+      font-size: 4em;
+    }
+  }
+
+@media screen and (max-width: 545px) {
+    h2 {
+      font-size: 3em;
+    }
+  }
+
+
+@media screen and (max-width: 415px) {
+    h2 {
+      font-size: 2em;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    h2 {
+      font-size: 2em;
+    }
+  }
+
+  @media screen and (max-width: 412px) {
+    h2 {
+      font-size: 2em;
+    }
+
+    span {
+        font-size: 0.8em;
+    }
+  }
+
+  @media screen and (max-width: 387px) {
+    h2 {
+      font-size: 2em;
+    }
+
+    span {
+        font-size: 0.7em;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    h2 {
+      font-size: 2em;
+    }
+
+    span {
+        font-size: 0.5em;
+    }
+  }
+
+  @media screen and (max-width: 280px) {
+    h2 {
+      font-size: 1em;
+    }
+
+    span {
+        font-size: 0.8em;
+    }
+  }
