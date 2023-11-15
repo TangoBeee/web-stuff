@@ -1,0 +1,120 @@
+:root {
+  --bg-color: #f6f7fb;
+  --primary-color: #7d2ae8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  color: var(--primary-color);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+}
+
+.container {
+  padding: 2em 7em;
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-image {
+  display: flex;
+  gap: 7em;
+}
+.result-image img {
+  width: 100px;
+}
+
+.user-result-image img {
+  transform: rotate(90deg);
+}
+
+.opponent-result-image img {
+  transform: rotate(-90deg) rotateY(180deg);
+}
+
+.result-message {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1.5em;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.game-options-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5em;
+}
+.game-options-container .option-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.5;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+.game-options-container .option-item img {
+  width: 50px;
+  pointer-events: none;
+}
+.game-options-container .option-item:hover {
+  opacity: 1;
+}
+.game-options-container .option-item p {
+  font-size: 1.235rem;
+  margin-top: 1em;
+  pointer-events: none;
+}
+.game-options-container .active {
+  opacity: 1;
+}
+
+.result-image-animation {
+  animation: hand-animation 1s alternate-reverse infinite;
+}
+
+@keyframes hand-animation {
+  from {
+    transform: rotateZ(1.5deg);
+  }
+  to {
+    transform: rotateZ(-1.5deg);
+  }
+}
+.start .user-result-image {
+  transform-origin: left;
+  animation: userShake 0.7s ease infinite;
+}
+.start .opponent-result-image {
+  transform-origin: right;
+  animation: opponentShake 0.7s ease infinite;
+}
+.start .option-item {
+  pointer-events: none;
+}
+
+@keyframes userShake {
+  50% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes opponentShake {
+  50% {
+    transform: rotate(-10deg);
+  }
+}/*# sourceMappingURL=style.css.map */
