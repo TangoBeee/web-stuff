@@ -25,5 +25,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](#)
-- Live Site URL: [Demo](https://tangobeee.github.io/frontendmentor/results-summary-component/index.html)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/results-summary-component-pgPna3nZGU)
+- Live Site URL: [Demo](https://tangobeee.github.io/web-stuff/frontendmentor/results-summary-component/)
