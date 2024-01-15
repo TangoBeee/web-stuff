@@ -1,0 +1,74 @@
+### Signup a new user
+POST  http://localhost:3001/api/register
+Content-Type: application/json
+
+{
+    "username": "tango",
+    "password": "tangos password",
+    "email": "tango@domain.com",
+    "firstName": "Tango",
+    "lastName": "Bee",
+    "address": "Jupiter near the SUN",
+    "profilePhoto": "BASE64"
+}
+
+### Login existing user
+POST  http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+    "username": "tango",
+    "password": "tangos password"
+}
+
+### Send welcome email
+POST  http://localhost:3001/api/welcomeMail
+Content-Type: application/json
+
+{
+    "username": "tango",
+    "email": "tango@domain.com",
+    "subject": "Demo subject",
+    "body": "Demo body, blah blah..."
+}
+
+### Check user existence
+POST  http://localhost:3001/api/userAuthentication
+Content-Type: application/json
+
+{
+    "username": "tango"
+}
+
+### Get user data
+GET  http://localhost:3001/api/user/:username
+
+### Get a new OTP
+GET  http://localhost:3001/api/generateOTP
+
+### Verify the OTP
+GET  http://localhost:3001/api/verifyOTP
+
+### Reset the current session
+GET  http://localhost:3001/api/createResetSession
+
+### Update user's profile/data
+PUT  http://localhost:3001/api/updateUser
+Content-Type: application/json
+
+{
+    "username": "tango",
+    "email": "tango@domain.com",
+    "firstName": "Tango",
+    "lastName": "Bee",
+    "address": "Jupiter near the SUN",
+    "profilePhoto": "BASE64"
+}
+
+### Reset the password
+PUT  http://localhost:3001/api/resetPassword
+Content-Type: application/json
+
+{
+    "password": "tangos password"
+}
