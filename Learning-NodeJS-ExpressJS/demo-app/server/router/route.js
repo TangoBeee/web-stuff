@@ -1,9 +1,9 @@
 const { Router } = require("express");
 
-const Auth = require("../controllers/Auth.controller")
-const OTP = require("../controllers/OTP.controller")
-const Session = require("../controllers/Session.controller")
-const User = require("../controllers/User.controller")
+const Auth = require("../controllers/Auth.controller");
+const OTP = require("../controllers/OTP.controller");
+const Session = require("../controllers/Session.controller");
+const User = require("../controllers/User.controller");
 
 const router = Router();
 
@@ -11,7 +11,11 @@ const router = Router();
 router.route("/register").post(Auth.register); // For signup
 router.route("/login").post(Auth.login); // For login
 router.route("/welcomeMail").post(Auth.welcomeMail); // Sending welcome email
-router.route("/userAuthentication").post(User.userAuthenticate); // Checking user existence
+router
+  .route("/userAuthentication")
+  .post(User.userAuthenticate, (req, res) =>
+    res.status(200).send({ msg: "User exist with the provided username." })
+  ); // Checking user existence
 
 // GET Method
 router.route("/user/:username").get(User.getUser); // Getting user data by it's username

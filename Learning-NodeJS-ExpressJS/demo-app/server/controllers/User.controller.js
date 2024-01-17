@@ -1,23 +1,56 @@
 /** GET: https://DOMAIN.com/api/user/:username
  **/
 
+const UserModel = require("../models/User.model");
+
 const getUser = async (req, res) => {
-  res.json({
-    data: "User getUser",
-  });
+  const { username } = req.params;
+
+  try {
+    if (!username) return res.status(501).send("Invalid username!");
+
+    UserModel.findOne({ username })
+      .then((userInDB) => {
+        if (!userInDB) return res.status(404).send({ msg: "User not found!" });
+
+        const { password, __v, _id, ...rest } = Object.assign(
+          {},
+          userInDB.toJSON()
+        );
+
+        return res.status(201).send(rest);
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          msg: error.message,
+        });
+      });
+  } catch (error) {
+    return res.status(500).send({
+      msg: error.message,
+    });
+  }
 };
 
-/** POST: https://DOMAIN.com/api/userAuthentication
+/** This is a middleware to verify an username**/
 
-    * @param: {
-        "username": "tango": STRING
-    }
-**/
+const userAuthenticate = async (req, res, next) => {
+  try {
+    console.log(req.method);
+    const { username } = req.method === "POST" ? req.body : res.query;
 
-const userAuthenticate = async (req, res) => {
-  res.json({
-    data: "User userAuthenticate",
-  });
+    const usernameExistInDB = await UserModel.findOne({ username });
+    if (!usernameExistInDB)
+      return res.status(500).send({
+        msg: "User not found",
+      });
+
+    next();
+  } catch (error) {
+    return res.status(500).send({
+      msg: error.message,
+    });
+  }
 };
 
 /** PUT: https://DOMAIN.com/api/updateUser

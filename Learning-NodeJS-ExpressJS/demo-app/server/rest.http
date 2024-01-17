@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 
 ### Get user data
-GET  http://localhost:3001/api/user/:username
+GET  http://localhost:3001/api/user/tango
 
 ### Get a new OTP
 GET  http://localhost:3001/api/generateOTP
